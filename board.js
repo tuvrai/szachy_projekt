@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded',drawBoard);
+  document.addEventListener('DOMContentLoaded',drawBoard);
 
 function fillSquare(x,y,color = 'rgb(91, 171, 113)')
 {
@@ -13,6 +13,7 @@ function fillSquare(x,y,color = 'rgb(91, 171, 113)')
 
 function drawBoard()
 {
+  
     let count = 1;
     let currentwhite = true;
     let lane = 8;
@@ -74,4 +75,26 @@ async function animate()
   }
 }
 
-document.addEventListener('click',animate);
+function mapPointToId(point)
+{
+  const id = point.x+8*point.y;
+  return id;
+}
+
+function getCursorPosition(canvas, event) {
+    const rect = canvas.getBoundingClientRect()
+    const canvasstyle = window.getComputedStyle(figurelayer)
+    const borderwidth = {x:parseInt(canvasstyle.borderLeftWidth),y:parseInt(canvasstyle.borderTopWidth)};
+    const x = event.clientX - rect.left - borderwidth.x;
+    const y = event.clientY - rect.top - borderwidth.y;
+    const point = {x:parseInt(x/80),y:parseInt(y/80)};
+    console.log("coo: "+point);
+    console.log("ID: "+mapPointToId(point));
+    console.log("x: " + x + " y: " + y)
+}
+
+//document.addEventListener('click',animate);
+const figurelayer = document.getElementById('figurelayer');
+  figurelayer.addEventListener('click',function(e){
+    getCursorPosition(figurelayer, e)
+  });
