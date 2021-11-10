@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Projekt szachy - problem skoczka</title>
+    <style media="screen">
+      #maincontainer
+      {
+        position:relative;
+        padding:20px;
+        min-height: 650px;
+        min-width:650px;
+      }
+      canvas
+      {
+        position:absolute;
+        top:0;
+        left:0;
+        border:10px solid goldenrod;
+      }
+      #animate
+      {
+        position:static;
+        top:700;
+        left:1000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="maincontainer">
+        <canvas id="boardlayer" width="640" height="640"></canvas>
+        <canvas id="figurelayer" width="640" height="640"></canvas>
+    </div>
+    <div>
+    <button id = "animate">kliknij mnie!</button>
+</div>
+    <script type="text/javascript" src="board.js"></script>
+  </body>
+</html>
